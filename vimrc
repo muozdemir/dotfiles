@@ -8,6 +8,10 @@ nnoremap <C-H> <C-W><C-H>
 " nnoremap <C-C> <C-E>
 " nnoremap <C-E> <C-Y>
 
+" toggle quickfix
+map <silent> <LocalLeader>ww :cope<CR>
+map <silent> <LocalLeader>we :ccl<CR>
+
 set splitbelow
 set splitright
 
