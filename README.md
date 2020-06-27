@@ -16,6 +16,9 @@ This README is most likely not up-to-date. Please reference the respective confi
 ## Vim key remaps
 
 `\jk` - Exit Insert mode and save document
+
 `,<space>` - Toggle Highlight
+
 `\nn` - Toggle line number
+
 `\ww` - Toggle Quickfix
