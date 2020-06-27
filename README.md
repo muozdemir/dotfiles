@@ -1,6 +1,6 @@
 # dotfiles
 
-Use at your own risk!
+_Use at your own risk!_
 
 This README is most likely not up-to-date. Please reference the respective config files for more info.
 
@@ -16,6 +16,9 @@ This README is most likely not up-to-date. Please reference the respective confi
 ## Vim key remaps
 
 `\jk` - Exit Insert mode and save document
-`,<space>` - Toggle Highlight
+
 `\nn` - Toggle line number
+
 `\ww` - Toggle Quickfix
+
+`,<space>` - Toggle Highlight
