@@ -1,6 +1,6 @@
 # dotfiles
 
-Use at your own risk!
+_Use at your own risk!_
 
 This README is most likely not up-to-date. Please reference the respective config files for more info.
 
