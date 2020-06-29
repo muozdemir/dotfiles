@@ -44,5 +44,5 @@ endfunction
 " first get powerline fonts:
 " linux: sudo apt-get install fonts-powerline
 " osx: download and manually install *all* fonts at https://github.com/powerline/fonts/tree/master/SourceCodePro
-" enable powerline font symbols for vim-airline. https://github.com/vim-airline/vim-airline/wiki/FAQ#the-powerline-font-symbols-are-not-showing-up
+" enable powerline font symbols for vim-airline. https://github.com/vim-airline/vim-airline#integrating-with-powerline-fonts
 let g:airline_powerline_fonts = 1
