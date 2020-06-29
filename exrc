@@ -1,5 +1,4 @@
 " exrc for wasavi
-set nu
 set nolaunchbell
 set visualbell
 set jkdenotative
@@ -9,3 +8,4 @@ set tabstop=4
 map! [noremap] jk <esc>
 map [noremap] <C-w> :wq<nl>
 map [noremap] <enter> :wq<nl>
+map \nn :set nu!<nl>
