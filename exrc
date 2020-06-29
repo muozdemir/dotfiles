@@ -1,11 +1,11 @@
 " exrc for wasavi
-set jkdenotative
+set nu
 set nolaunchbell
 set visualbell
+set jkdenotative
 set tabstop=4
 
 " key maps
 map! [noremap] jk <esc>
-map! [noremap] <enter> <esc>:wq<nl>
 map [noremap] <C-w> :wq<nl>
 map [noremap] <enter> :wq<nl>
