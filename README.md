@@ -13,7 +13,7 @@ This README is most likely not up-to-date. Please reference the respective confi
 * Change default cursor in Insert mode
 * Easy navigation between tmux and vim (no leader required)
 
-## Vim key remaps
+## vim key remaps
 
 `\jk` - Exit Insert mode and save document
 
