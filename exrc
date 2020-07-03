@@ -1,7 +1,7 @@
 " exrc for wasavi
 set nolaunchbell
 " set visualbell
-set bellvolume=2
+set bellvolume=1
 set jkdenotative
 set tabstop=4
 
