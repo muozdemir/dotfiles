@@ -10,3 +10,4 @@ map! [noremap] jk <esc>:w<nl>
 map [noremap] <C-w> :wq<nl>
 map [noremap] <enter> :wq<nl>
 map \nn :set nu!<nl>
+map \ff :set fs!<nl>
