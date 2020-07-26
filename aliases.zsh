@@ -15,7 +15,7 @@ alias gbu='git branch -u'
 alias gdc='git diff --cached'
 alias gdm='git diff master...$(git rev-parse --abbrev-ref HEAD)'
 alias gfp='git fetch --prune' # alternatively, "-p"
-alias gpmd='git pull main develop'
+alias gpom='git pull origin master'
 alias gl='git log --oneline'  # overrides 'gl=git pull' from git plugin
 alias grh='git reset --hard'
 alias gr='g remote -vv'
