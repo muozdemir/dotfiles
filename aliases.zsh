@@ -3,7 +3,6 @@ alias ..=".. && ls"
 alias agrp='alias G'
 alias code='open -a /Applications/Visual\ Studio\ Code.app/'
 alias ca='~/.oh-my-zsh/custom/aliases.zsh'
-alias na='nn ~/.oh-my-zsh/custom/aliases.zsh'
 alias va='vim ~/.oh-my-zsh/custom/aliases.zsh'
 alias cb='code ~/.bash_profile'
 alias ci='~/.oh-my-zsh/custom/iterm_badges.zsh'
@@ -33,6 +32,7 @@ alias gencontext='gencontext -c'
 
 # directories
 alias bt='cd ~/bt && ls'
+alias dotfiles='cd ~/github/dotfiles'
 alias is='cd ~/bt/in-store && gs'
 alias pypl='cd ~/pypl && ls'
 alias s='cd ~/github/sharks && gs'
