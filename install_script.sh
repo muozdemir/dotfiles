@@ -20,8 +20,9 @@ echo "Step 5/8: Cloning zsh-autosuggestions and zsh-syntax-highlighting"
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
-echo "Step 6/8: Cloning dotfiles and setting up symlinks"
-git clone git@github.com:danielharbor/dotfiles.git ~/github
+echo "Step 6/8: Setting up symlinks"
+# this'll likely already be cloned to get a hold of this script anyway
+# git clone git@github.com:danielharbor/dotfiles.git ~/github
 ln -s ~/github/dotfiles/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
 ln -s ~/github/dotfiles/tmux.conf ~/.tmux.conf
 
