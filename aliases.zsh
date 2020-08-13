@@ -1,8 +1,8 @@
 alias ~="~ && ls"
 alias ..=".. && ls"
 alias agrp='alias G'
+alias eject='diskutil unmountDisk /Volumes/UNTITLED && echo 🧑‍🚒'
 alias code='open -a /Applications/Visual\ Studio\ Code.app/'
-alias ca='~/.oh-my-zsh/custom/aliases.zsh'
 alias va='vim ~/.oh-my-zsh/custom/aliases.zsh'
 alias cb='code ~/.bash_profile'
 alias ci='~/.oh-my-zsh/custom/iterm_badges.zsh'
@@ -128,10 +128,12 @@ alias cdp='cpair d -p'
 alias cl='cpair l'
 alias cs='cpair s'
 alias csp='cpair s -p'
+alias cas='cpair -A sandbox'
+alias show-usb='ls /Volumes/UNTITLED'
 load-usb () {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
-  cp target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tar.gz /Volumes/UNTITLED
-  diskutil unmountDisk /Volumes/UNTITLED
+  cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/UNTITLED
+  eject
 }
 sign () {
   cd ~/bt/in-store
