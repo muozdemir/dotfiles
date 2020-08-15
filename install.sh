@@ -27,7 +27,7 @@ ln -s ~/github/dotfiles/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
 ln -s ~/github/dotfiles/tmux.conf ~/.tmux.conf
 
 echo "Step 7/8: Cloning vim dotfiles"
-git clone git@github.com:danielharbor/vim_dotfiles.git
+git clone git@github.com:danielharbor/vim_dotfiles.git ~/.vim
 
 echo "Step 8/8: Cloning TPM (Tmux Plugin Manager)"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
