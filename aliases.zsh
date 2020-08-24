@@ -26,22 +26,20 @@ alias gsp='git stash pop'
 alias gss='git stash save'
 alias gssh='git stash show'
 alias gsshp='git stash show -p'
+alias sz='source ~/.zshrc'
+lcd () { cd "${@:1}" && ls; }
 mcd() { mkdir $1 && cd $1; }
-alias sharks='sharks --copy'
-alias gencontext='gencontext -c'
 
 # directories
 alias bt='cd ~/bt && ls'
 alias dotfiles='cd ~/github/dotfiles'
 alias is='cd ~/bt/in-store && gs'
-alias pypl='cd ~/pypl && ls'
-alias s='cd ~/github/sharks && gs'
 alias -g nginxconf='/usr/local/etc/nginx/nginx.conf'
 alias nginxreload='sudo nginx -s stop && sudo nginx'
-alias -g npmroot='$(npm -g root)'
 
 # global aliases (can appear anywhere in command string)
 alias -g G='| grep -i' # case insensitive grep e.g. cat foo.txt G bar
+alias -g Y='yes y |'
 
 # suffix aliases (open with...)
 alias -s jsx=code  # open jsx files with vscode
@@ -57,24 +55,6 @@ increasekeyrepeat () {
     defaults write -g InitialKeyRepeat -int 10 # normal minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 }
-
-lcd () { cd "${@:1}" && ls; }
-alias nn='nano'
-alias nnn='nn ~/.nanorc'
-alias sz='source ~/.zshrc'
-
-# node
-alias ne='npx eslint'
-alias nef='npx eslint --fix'
-alias wnjw='npx jest --watch --collectCoverage false --config ./jest.widget.config.js'
-alias nj='npx jest --collectCoverage false'
-alias njc='npx jest'
-alias njw='npx jest --watch --collectCoverage false'
-alias njwc='npx jest --watch'
-alias nrb='npm run build'
-alias nrl='npm run lint'
-alias nrt='npm run test'
-alias nrmi='rm -rf node_modules; rm -rf package-lock.json; npm i'
 
 # docker
 alias db='docker build'
@@ -123,19 +103,23 @@ alias tns='tmux new -s'
 
 ## BT specific
 # cpair
-alias ccp='cpair c -p'
+ccp () { cpair c -p $1 && cpair s -p $1 }
 alias cdp='cpair d -p'
 alias cl='cpair l'
 alias cs='cpair s'
 alias csp='cpair s -p'
 alias cas='cpair -A sandbox'
+alias casl='cas l'
+alias cass='cas s'
+alias cascp='cas c -p'
+alias cassp='cas s -p'
 alias show-usb='ls /Volumes/UNTITLED'
 load-usb () {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
   cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/UNTITLED
   eject
 }
-sign () {
+pull-and-sign () {
   cd ~/bt/in-store
   ./pull_from_cpair_and_sign.sh $1
   load-usb
