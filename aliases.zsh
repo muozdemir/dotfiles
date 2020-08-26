@@ -11,6 +11,7 @@ alias cz='code ~/.zshrc'
 alias nz='nn ~/.zshrc'
 alias gb='git branch -vv'
 alias gbu='git branch -u'
+alias gcamm='git commit --amend -m'
 alias gdc='git diff --cached'
 alias gdm='git diff master...$(git rev-parse --abbrev-ref HEAD)'
 alias gfp='git fetch --prune' # alternatively, "-p"
@@ -121,6 +122,6 @@ load-usb () {
 }
 pull-and-sign () {
   cd ~/bt/in-store
-  ./pull_from_cpair_and_sign.sh $1
+  ./pull_from_cpair_and_sign.sh dharbor
   load-usb
 }
