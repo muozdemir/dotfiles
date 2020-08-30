@@ -105,15 +105,16 @@ alias tns='tmux new -s'
 ## BT specific
 # cpair
 ccp () { cpair c -p $1 && cpair s -p $1 }
-alias cdp='cpair d -p'
+alias cdp='Y cpair d -p'
 alias cl='cpair l'
 alias cs='cpair s'
 alias csp='cpair s -p'
 alias cas='cpair -A sandbox'
 alias casl='cas l'
 alias cass='cas s'
-alias cascp='cas c -p'
 alias cassp='cas s -p'
+alias casdp='Y cas d -p'
+cascp () { cas c -p $1 && cassp $1 }
 alias show-usb='ls /Volumes/UNTITLED'
 load-usb () {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
