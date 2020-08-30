@@ -104,7 +104,6 @@ alias tns='tmux new -s'
 
 ## BT specific
 # cpair
-ccp () { cpair c -p $1 && cpair s -p $1 }
 alias cdp='Y cpair d -p'
 alias cl='cpair l'
 alias cs='cpair s'
@@ -114,13 +113,19 @@ alias casl='cas l'
 alias cass='cas s'
 alias cassp='cas s -p'
 alias casdp='Y cas d -p'
-cascp () { cas c -p $1 && cassp $1 }
 alias show-usb='ls /Volumes/UNTITLED'
+
+# functions
+cascp () { cas c -p $1 && cassp $1 }
+
+ccp () { cpair c -p $1 && cpair s -p $1 }
+
 load-usb () {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
   cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/UNTITLED
   eject
 }
+
 pull-and-sign () {
   cd ~/bt/in-store
   ./pull_from_cpair_and_sign.sh dharbor
