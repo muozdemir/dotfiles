@@ -3,7 +3,7 @@ alias ..=".. && ls"
 alias agrp='alias G'
 alias eject='diskutil unmountDisk /Volumes/UNTITLED && echo 🧑‍🚒'
 alias code='open -a /Applications/Visual\ Studio\ Code.app/'
-alias va='vim ~/.oh-my-zsh/custom/aliases.zsh'
+alias va='vim ~/github/dotfiles/aliases.zsh'
 alias cb='code ~/.bash_profile'
 alias ci='~/.oh-my-zsh/custom/iterm_badges.zsh'
 alias ni='nn ~/.oh-my-zsh/custom/iterm_badges.zsh'
@@ -27,6 +27,10 @@ alias gsp='git stash pop'
 alias gss='git stash save'
 alias gssh='git stash show'
 alias gsshp='git stash show -p'
+alias screenl='screen -L /dev/cu.usbserial-14210 115200 –L'
+alias show-usb='ls /Volumes/UNTITLED'
+alias sls='screen -ls'
+alias sxq='screen -X quit'
 alias sz='source ~/.zshrc'
 lcd () { cd "${@:1}" && ls; }
 mcd() { mkdir $1 && cd $1; }
@@ -103,17 +107,17 @@ alias tlscm='tmux lscm'
 alias tns='tmux new -s'
 
 ## BT specific
-# cpair
 alias cdp='Y cpair d -p'
 alias cl='cpair l'
 alias cs='cpair s'
 alias csp='cpair s -p'
 alias cas='cpair -A sandbox'
+alias casc='cas c'
 alias casl='cas l'
 alias cass='cas s'
 alias cassp='cas s -p'
 alias casdp='Y cas d -p'
-alias show-usb='ls /Volumes/UNTITLED'
+alias css='cd ~/.cpair-setup-script'
 
 # functions
 cascp () { cas c -p $1 && cassp $1 }
