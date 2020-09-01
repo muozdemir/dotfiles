@@ -15,6 +15,7 @@ alias gcamm='git commit --amend -m'
 alias gdc='git diff --cached'
 alias gdm='git diff master...$(git rev-parse --abbrev-ref HEAD)'
 alias gfp='git fetch --prune' # alternatively, "-p"
+alias gpl='git pull'
 alias gpom='git pull origin main'
 alias gl='git log --oneline'  # overrides 'gl=git pull' from git plugin
 alias grh='git reset --hard'
