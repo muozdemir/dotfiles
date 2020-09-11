@@ -1,14 +1,11 @@
 alias ~="~ && ls"
 alias ..=".. && ls"
 alias agrp='alias G'
-alias eject='diskutil unmountDisk /Volumes/UNTITLED && echo 🧑‍🚒'
 alias code='open -a /Applications/Visual\ Studio\ Code.app/'
-alias va='vim ~/github/dotfiles/aliases.zsh'
+alias eject='diskutil unmountDisk /Volumes/UNTITLED && echo 🧑‍🚒'
 alias cb='code ~/.bash_profile'
 alias ci='~/.oh-my-zsh/custom/iterm_badges.zsh'
-alias ni='nn ~/.oh-my-zsh/custom/iterm_badges.zsh'
 alias cz='code ~/.zshrc'
-alias nz='nn ~/.zshrc'
 alias gb='git branch -vv'
 alias gbu='git branch -u'
 alias gcamm='git commit --amend -m'
@@ -28,11 +25,15 @@ alias gsp='git stash pop'
 alias gss='git stash save'
 alias gssh='git stash show'
 alias gsshp='git stash show -p'
-alias screenl='screen -L /dev/cu.usbserial-14210 115200 –L'
+alias screen-1='screen -L /dev/cu.usbserial-14110 115200 –L'
+alias screen-2='screen -L /dev/cu.usbserial-14210 115200 –L'
 alias show-usb='ls /Volumes/UNTITLED'
 alias sls='screen -ls'
 alias sxq='screen -X quit'
 alias sz='source ~/.zshrc'
+alias va='vim ~/github/dotfiles/aliases.zsh'
+
+copy-to-usb() { cp $1 /Volumes/UNTITLED }
 lcd () { cd "${@:1}" && ls; }
 mcd() { mkdir $1 && cd $1; }
 
@@ -113,12 +114,12 @@ alias cl='cpair l'
 alias cs='cpair s'
 alias csp='cpair s -p'
 alias cas='cpair -A sandbox'
-alias casc='cas c'
+alias casc='cas c && cas s'
 alias casl='cas l'
 alias cass='cas s'
 alias cassp='cas s -p'
 alias casdp='Y cas d -p'
-alias css='cd ~/.cpair-setup-script'
+alias css='cd ~/bt/cpair-setup-script'
 
 # functions
 cascp () { cas c -p $1 && cassp $1 }
