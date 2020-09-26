@@ -25,12 +25,13 @@ alias gsp='git stash pop'
 alias gss='git stash save'
 alias gssh='git stash show'
 alias gsshp='git stash show -p'
-alias screen1='screen -L /dev/cu.usbserial-14110 115200 –L'
-alias screen2='screen -L /dev/cu.usbserial-14210 115200 –L'
+alias os='screen -L /dev/cu.usbserial 115200 –L'
 alias show-usb='ls /Volumes/UNTITLED'
 alias sls='screen -ls'
+alias sx='screen -x'
 alias sxq='screen -X quit'
 alias sz='source ~/.zshrc'
+alias usb='cd /Volumes/UNTITLED && ls'
 alias va='vim ~/github/dotfiles/aliases.zsh'
 
 copy-to-usb() { cp $1 /Volumes/UNTITLED }
@@ -132,7 +133,7 @@ load-usb () {
   eject
 }
 
-pull-and-sign () {
+pas () {
   cd ~/bt/in-store
   ./pull_from_cpair_and_sign.sh dharbor
   load-usb
