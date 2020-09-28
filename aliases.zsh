@@ -135,6 +135,6 @@ load-usb () {
 
 pas () {
   cd ~/bt/in-store
-  ./pull_from_cpair_and_sign.sh dharbor
+  ./pull_from_cpair_and_sign.sh $1
   load-usb
 }
