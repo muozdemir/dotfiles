@@ -34,9 +34,10 @@ alias sz='source ~/.zshrc'
 alias usb='cd /Volumes/UNTITLED && ls'
 alias va='vim ~/github/dotfiles/aliases.zsh'
 
-copy-to-usb() { cp $1 /Volumes/UNTITLED }
+copy-to-usb () { cp $1 /Volumes/UNTITLED }
 lcd () { cd "${@:1}" && ls; }
-mcd() { mkdir $1 && cd $1; }
+mcd () { mkdir $1 && cd $1; }
+touchopen () { touch $1 && vim $1; }
 
 # directories
 alias bt='cd ~/bt && ls'
