@@ -137,5 +137,5 @@ load-usb () {
 pas () {
   cd ~/bt/in-store
   ./pull_from_cpair_and_sign.sh $1
-  load-usb && say signed || say insert usb
+  load-usb && say -v Daniel signed || say -v Daniel insert usb
 }
