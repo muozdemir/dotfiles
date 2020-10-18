@@ -1,0 +1,44 @@
+{
+   "title": "Sample app-specific binding",
+   "rules": [
+      {
+         "description": "Sample app-specific binding",
+         "manipulators": [
+            {
+               "conditions": [
+                  {
+                     "bundle_identifiers": [
+                        "^com\\.apple\\.finder$"
+                     ],
+                     "type": "frontmost_application_if"
+                  }
+               ],
+               "description": "Finder Ctrl-; goto location",
+               "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                     "mandatory": [
+                        "left_control"
+                     ],
+                     "optional": [
+                        "caps_lock",
+                        "shift",
+                        "option"
+                     ]
+                  }
+               },
+               "to": [
+                  {
+                     "key_code": "g",
+                     "modifiers": [
+                        "command",
+                        "shift"
+                     ]
+                  }
+               ],
+               "type": "basic"
+            }
+         ]
+      }
+   ]
+}
