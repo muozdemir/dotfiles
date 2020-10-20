@@ -93,7 +93,11 @@ da () {
    printf '\n\n'
 }
 dk () { dkp || dkif; }
-dka () { dk && dk; }
+dka () {
+  dk && dk
+  Y docker network prune
+  Y docker volume prune
+}
 drun () { docker run -it $1; }
 alias dvls='docker volume ls'
 alias dvpf='docker volume prune -f'
