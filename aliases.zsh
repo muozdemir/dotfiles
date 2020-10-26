@@ -126,6 +126,7 @@ alias casl='cas l'
 alias cass='cas s'
 alias cassp='cas s -p'
 alias casdp='Y cas d -p'
+alias copy-to-cpair='cpair scp $2 :~/ -p $1'
 alias css='cd ~/bt/cpair-setup-script'
 
 # functions
