@@ -142,6 +142,6 @@ load-usb () {
 
 pas () {
   cd ~/bt/in-store
-  ./pull_from_cpair_and_sign.sh $1
+  ./pull_from_cpair_and_sign.sh $1 || say -v Daniel pull failed && return
   load-usb && say -v Daniel signed || say -v Daniel insert usb
 }
