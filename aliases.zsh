@@ -33,6 +33,7 @@ alias sx='screen -x'
 alias sxq='screen -X quit'
 alias sz='source ~/.zshrc'
 alias usb='cd /Volumes/UNTITLED && ls'
+alias v='vim'
 alias va='vim ~/github/dotfiles/aliases.zsh'
 
 copy-to-usb () { cp $1 /Volumes/UNTITLED }
