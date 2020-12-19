@@ -150,3 +150,13 @@ pas () {
     say -v Daniel pull failed
   fi
 }
+
+pau () {
+  cd ~/bt/in-store
+  ./pull_from_cpair_and_upload.sh $1 192.168.86.168
+  if [ $? -eq 0 ]; then
+    load-usb && say -v Daniel upload complete
+  else
+    say -v Daniel pull failed
+  fi
+}
