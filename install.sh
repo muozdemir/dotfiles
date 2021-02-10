@@ -14,7 +14,7 @@ echo "Step 3/8: Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 echo "Step 4/8: Installing terminal apps"
-brew install ranger highlight bash-completion tmux tig
+brew install ranger highlight bash-completion tmux tig neovim
 
 echo "Step 5/8: Cloning zsh-autosuggestions and zsh-syntax-highlighting"
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions

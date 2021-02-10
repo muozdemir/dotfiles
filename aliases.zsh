@@ -13,7 +13,7 @@ alias gdc='git diff --cached'
 alias gdm='git diff master...$(git rev-parse --abbrev-ref HEAD)'
 alias gfp='git fetch --prune' # alternatively, "-p"
 alias gpl='git pull'
-alias gpom='git pull origin main'
+alias gpom='git pull origin $(git_main_branch)'
 alias gl='git log --oneline'  # overrides 'gl=git pull' from git plugin
 alias grh='git reset --hard'
 alias gr='g remote -vv'
@@ -24,7 +24,9 @@ alias gsl='git stash list'
 alias gsp='git stash pop'
 alias gss='git stash save'
 alias gssh='git stash show'
-alias gsshp='git stash show -p'
+alias nrd='npm run dev'
+alias ns='npm start'
+alias nv='nvim'
 alias os='sudo cu -s 115200 -l /dev/tty.usbserial'
 alias old-os='screen -L /dev/cu.usbserial 115200 –L'
 alias show-usb='ls /Volumes/UNTITLED'
@@ -135,6 +137,13 @@ alias css='cd ~/bt/cpair-setup-script'
 cascp () { cas c -p $1 && cassp $1 }
 
 ccp () { cpair c -p $1 && cpair s -p $1 }
+
+gstaap() { git stash apply stash@{$1} }
+gsshp() { git stash show stash@{$1} }
+gstdp() { git stash drop stash@{$1} }
+gstpp() { git stash pop stash@{$1} }
+gstsp() { git stash show --text stash@{$1} }
+gstst () { git stash push -m "${@:1}" -- $(git diff --staged --name-only) }
 
 load-usb () {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
