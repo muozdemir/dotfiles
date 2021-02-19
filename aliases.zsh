@@ -151,6 +151,15 @@ load-usb () {
   eject
 }
 
+load-reader() {
+  python3 ~/bt/in-store/tools/netloader/netloader.py -ip 192.168.86.$2 -cl $1
+  if [ $? -eq 0 ]; then
+    say -v Daniel upload complete
+  else
+    say -v Daniel pull failed
+  fi
+}
+
 pas () {
   cd ~/bt/in-store
   ./pull_from_cpair_and_sign.sh $1
