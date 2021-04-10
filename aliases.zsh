@@ -43,6 +43,19 @@ lcd () { cd "${@:1}" && ls; }
 mcd () { mkdir $1 && cd $1; }
 touchopen () { touch $1 && vim $1; }
 
+# JAVA
+alias all-java='/usr/libexec/java_home -V'
+alias highest-java='/usr/libexec/java_home'
+
+## switch java versions (not needed yet, since java 11 became default after installation)
+# export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+# export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+# alias java8='export JAVA_HOME=$JAVA_8_HOME'
+# alias java11='export JAVA_HOME=$JAVA_11_HOME'
+#
+# ## default to Java 11
+# java11
+
 # directories
 alias bt='cd ~/bt && ls'
 alias dotfiles='cd ~/github/dotfiles'
