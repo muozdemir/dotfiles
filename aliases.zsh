@@ -136,19 +136,22 @@ alias cdp='Y cpair d -p'
 alias cl='cpair l'
 alias cs='cpair s'
 alias csp='cpair s -p'
+alias caps='cpair -A production ssh'
 alias cas='cpair -A sandbox'
 alias casc='cas c && cas s'
 alias casl='cas l'
 alias cass='cas s'
 alias cassp='cas s -p'
 alias casdp='Y cas d -p'
-alias copy-to-cpair='cpair scp $2 :~/ -p $1'
 alias css='cd ~/bt/cpair-setup-script'
 
 # functions
 cascp () { cas c -p $1 && cassp $1 }
 
 ccp () { cpair c -p $1 && cpair s -p $1 }
+
+copy-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1.tgz . -p $2 }
+copy-to-cpair() { cpair scp $1 :~/ -p $2 } # copies file to /home/dharbor
 
 gstaap() { git stash apply stash@{$1} }
 gsshp() { git stash show stash@{$1} }
@@ -161,6 +164,15 @@ load-usb () {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
   cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/UNTITLED
   eject
+}
+
+load-reader() {
+  python3 ~/bt/in-store/tools/netloader/netloader.py -ip 192.168.86.$2 -cl $1
+  if [ $? -eq 0 ]; then
+    say -v Daniel upload complete
+  else
+    say -v Daniel pull failed
+  fi
 }
 
 pas () {
