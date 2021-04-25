@@ -146,9 +146,9 @@ alias casdp='Y cas d -p'
 alias css='cd ~/bt/cpair-setup-script'
 
 # functions
-cascp () { cas c -p $1 && cassp $1 }
+cascp() { cas c -p $1 && cassp $1 }
 
-ccp () { cpair c -p $1 && cpair s -p $1 }
+ccp() { cpair c -p $1 && cpair s -p $1 }
 
 copy-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1.tgz . -p $2 }
 copy-to-cpair() { cpair scp $1 :~/ -p $2 } # copies file to /home/dharbor
@@ -162,7 +162,7 @@ gstst () { git stash push -m "${@:1}" -- $(git diff --staged --name-only) }
 
 j() { javac $1 && java ${1%.*} }
 
-load-usb () {
+load-usb() {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
   cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/UNTITLED
   eject
@@ -177,7 +177,7 @@ load-reader() {
   fi
 }
 
-pas () {
+pas() {
   cd ~/bt/in-store
   ./pull_from_cpair_and_sign.sh $1
   if [ $? -eq 0 ]; then
@@ -187,7 +187,7 @@ pas () {
   fi
 }
 
-pau () {
+pau() {
   cd ~/bt/in-store
   ./pull_from_cpair_and_upload.sh $1 192.168.86.$2
   if [ $? -eq 0 ]; then
