@@ -160,6 +160,8 @@ gstpp() { git stash pop stash@{$1} }
 gstsp() { git stash show --text stash@{$1} }
 gstst () { git stash push -m "${@:1}" -- $(git diff --staged --name-only) }
 
+j() { javac $1 && java ${1%.*} }
+
 load-usb () {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
   cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/UNTITLED
