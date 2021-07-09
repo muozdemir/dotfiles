@@ -138,6 +138,7 @@ cascp () { cas c -p $1 && cassp $1 }
 ccp () { cpair c -p $1 && cpair s -p $1 }
 
 copy-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1.tgz . -p $2 }
+copy-signed-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1-SIGNED.tgz . -p $2 }
 copy-to-cpair() { cpair scp $1 :~/ -p $2 } # copies file to /home/dharbor
 
 gstaap() { git stash apply stash@{$1} }
