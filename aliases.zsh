@@ -43,6 +43,19 @@ lcd () { cd "${@:1}" && ls; }
 mcd () { mkdir $1 && cd $1; }
 touchopen () { touch $1 && vim $1; }
 
+# JAVA
+alias all-java='/usr/libexec/java_home -V'
+alias highest-java='/usr/libexec/java_home'
+
+## switch java versions (not needed yet, since java 11 became default after installation)
+# export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+# export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+# alias java8='export JAVA_HOME=$JAVA_8_HOME'
+# alias java11='export JAVA_HOME=$JAVA_11_HOME'
+#
+# ## default to Java 11
+# java11
+
 # directories
 alias bt='cd ~/bt && ls'
 alias dotfiles='cd ~/github/dotfiles'
@@ -133,9 +146,9 @@ alias casdp='Y cas d -p'
 alias css='cd ~/bt/cpair-setup-script'
 
 # functions
-cascp () { cas c -p $1 && cassp $1 }
+cascp() { cas c -p $1 && cassp $1 }
 
-ccp () { cpair c -p $1 && cpair s -p $1 }
+ccp() { cpair c -p $1 && cpair s -p $1 }
 
 copy-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1.tgz . -p $2 }
 copy-signed-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1-SIGNED.tgz . -p $2 }
@@ -148,7 +161,9 @@ gstpp() { git stash pop stash@{$1} }
 gstsp() { git stash show --text stash@{$1} }
 gstst () { git stash push -m "${@:1}" -- $(git diff --staged --name-only) }
 
-load-usb () {
+j() { javac $1 && java ${1%.*} }
+
+load-usb() {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
   cp ~/bt/in-store/target/dist/Braintree-$BRAINTREE_VERSION-SIGNED.tgz /Volumes/UNTITLED
   eject
@@ -163,7 +178,7 @@ load-reader() {
   fi
 }
 
-pas () {
+pas() {
   cd ~/bt/in-store
   ./pull_from_cpair_and_sign.sh $1
   if [ $? -eq 0 ]; then
@@ -173,7 +188,7 @@ pas () {
   fi
 }
 
-pau () {
+pau() {
   cd ~/bt/in-store
   ./pull_from_cpair_and_upload.sh $1 192.168.86.$2
   if [ $? -eq 0 ]; then

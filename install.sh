@@ -8,7 +8,7 @@ echo "Step 1/8: Installing Homebrew"
 brew update
 
 echo "Step 2/8: Installing mac apps"
-brew cask install iterm2 visual-studio-code karabiner-elements spotify evernote synergy
+brew install --cask iterm2 --cask visual-studio-code --cask karabiner-elements --cask spotify --cask evernote --cask synergy
 
 echo "Step 3/8: Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
