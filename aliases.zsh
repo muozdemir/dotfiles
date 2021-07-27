@@ -178,9 +178,17 @@ load-reader() {
   fi
 }
 
-# https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+## Maven (https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
 # create a new mvn app (arg: app_name)
-create-mvn-app() { mvn archetype:generate -DgroupId=com.daito.app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false }
+create-mvn-app() {
+  mvn archetype:generate -DgroupId=com.daito.app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false;
+}
+
+# run maven app
+mvn-run() { java -cp target/${PWD##*/}-1.0-SNAPSHOT.jar com.daito.app.App }
+
+# maven package and run
+mvn-par() { mvn package && mvn-run }
 
 pas() {
   cd ~/bt/in-store
