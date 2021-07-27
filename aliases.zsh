@@ -182,6 +182,7 @@ load-reader() {
 # create a new mvn app (arg: app_name)
 create-mvn-app() {
   mvn archetype:generate -DgroupId=com.daito.app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false;
+  echo "$(tput setaf 6)Message from daito: Don't forget to run the 'Java 9 or later' steps at https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html#java-9-or-later$(tput sgr 0)"
 }
 
 # run maven app
