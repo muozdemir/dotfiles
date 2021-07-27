@@ -178,7 +178,9 @@ load-reader() {
   fi
 }
 
-mvn-app() { mvn archetype:generate -DgroupId=com.daito.app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false }
+# https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
+# create a new mvn app (arg: app_name)
+create-mvn-app() { mvn archetype:generate -DgroupId=com.daito.app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false }
 
 pas() {
   cd ~/bt/in-store
