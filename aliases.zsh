@@ -178,6 +178,8 @@ load-reader() {
   fi
 }
 
+mvn-app() { mvn archetype:generate -DgroupId=com.daito.app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false }
+
 pas() {
   cd ~/bt/in-store
   ./pull_from_cpair_and_sign.sh $1

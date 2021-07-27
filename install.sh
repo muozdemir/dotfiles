@@ -26,6 +26,7 @@ echo "Step 6/8: Setting up symlinks"
 ln -s ~/github/dotfiles/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
 ln -s ~/github/dotfiles/key_bindings/* ~/.config/karabiner/assets/complex_modifications/
 ln -s ~/github/dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/github/dotfiles/zshrc ~/.zshrc
 
 echo "Step 7/8: Cloning vim dotfiles"
 git clone git@github.com:danielharbor/vim_dotfiles.git ~/.vim
@@ -34,5 +35,4 @@ echo "Step 8/8: Cloning TPM (Tmux Plugin Manager)"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "Setup complete!!! 💪"
-echo "Don't forget to add zsh-autosuggestions and zsh-syntax-highlighting to plugins in ~/.zshrc, i.e. plugins=(git zsh-autosuggestions zsh-syntax-highlighting)"
-echo "Oh also... launch tmux and install tmux plugins - Ctrl + a I"
+echo "Oh, one last thing... launch tmux and install tmux plugins - Ctrl + a I"
