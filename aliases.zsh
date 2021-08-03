@@ -17,6 +17,7 @@ alias gpom='git pull origin $(git_main_branch)'
 alias gl='git log --oneline'  # overrides 'gl=git pull' from git plugin
 alias grh='git reset --hard'
 alias gr='g remote -vv'
+alias grun='./gradlew run'
 alias gs='git status'  # alternative to 'gst' alias from git plugin
 alias gsa='git stash apply' #  optionally: stash@{stash_index}
 alias gsd='git stash drop'  # overrides 'gsd' alias from git plugin
