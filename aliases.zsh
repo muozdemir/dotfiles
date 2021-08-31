@@ -40,11 +40,6 @@ alias usb='cd /Volumes/UNTITLED && ls'
 alias v='vim'
 alias va='vim ~/github/dotfiles/aliases.zsh'
 
-copy-to-usb () { cp $1 /Volumes/UNTITLED }
-lcd () { cd "${@:1}" && ls; }
-mcd () { mkdir $1 && cd $1; }
-touchopen () { touch $1 && vim $1; }
-
 # JAVA
 alias all-java='/usr/libexec/java_home -V'
 alias highest-java='/usr/libexec/java_home'
@@ -149,23 +144,29 @@ alias css='cd ~/bt/cpair-setup-script'
 
 # functions
 cascp() { cas c -p $1 && cassp $1 }
-
 ccp() { cpair c -p $1 && cpair s -p $1 }
-
 copy-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1.tgz . -p $2 }
 copy-signed-from-cpair() { cpair scp :/home/admin/bt/in-store/target/dist/Braintree-$1-SIGNED.tgz . -p $2 }
 copy-to-cpair() { cpair scp $1 :~/ -p $2 } # copies file to /home/dharbor
+copy-to-usb () { cp $1 /Volumes/UNTITLED }
+
+## Maven (https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
+# create a new mvn app (arg: app_name)
+create-mvn-app() {
+  mvn archetype:generate -DgroupId=com.daito.app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false;
+  echo "$(tput setaf 6)Message from daito: Don't forget to run the 'Java 9 or later' steps at https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html#java-9-or-later$(tput sgr 0)"
+}
+
 encode() { echo "$1" | base64 }
 decode() { echo "$1" | base64 -d }
-
 gstaap() { git stash apply stash@{$1} }
 gsshp() { git stash show stash@{$1} }
 gstdp() { git stash drop stash@{$1} }
 gstpp() { git stash pop stash@{$1} }
 gstsp() { git stash show --text stash@{$1} }
 gstst () { git stash push -m "${@:1}" -- $(git diff --staged --name-only) }
-
 j() { javac $1 && java ${1%.*} }
+lcd () { cd "${@:1}" && ls; }
 
 load-usb() {
   export $(cat ~/bt/in-store/target/dist/signing.env | xargs)
@@ -182,16 +183,9 @@ load-reader() {
   fi
 }
 
-## Maven (https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)
-# create a new mvn app (arg: app_name)
-create-mvn-app() {
-  mvn archetype:generate -DgroupId=com.daito.app -DartifactId=$1 -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false;
-  echo "$(tput setaf 6)Message from daito: Don't forget to run the 'Java 9 or later' steps at https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html#java-9-or-later$(tput sgr 0)"
-}
-
+mcd () { mkdir $1 && cd $1; }
 # run maven app
 mvn-run() { java -cp target/${PWD##*/}-1.0-SNAPSHOT.jar com.daito.app.App }
-
 # maven package and run
 mvn-par() { mvn package && mvn-run }
 
@@ -214,3 +208,6 @@ pau() {
     say -v Daniel pull failed
   fi
 }
+
+tnet () { telnet 192.168.86.$1 }
+touchopen () { touch $1 && vim $1; }
