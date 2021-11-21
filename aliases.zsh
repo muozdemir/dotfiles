@@ -17,7 +17,6 @@ alias gpom='git pull origin $(git_main_branch)'
 alias gl='git log --oneline'  # overrides 'gl=git pull' from git plugin
 alias grh='git reset --hard'
 alias gr='g remote -vv'
-alias grun='./gradlew run'
 alias gs='git status'  # alternative to 'gst' alias from git plugin
 alias gsa='git stash apply' #  optionally: stash@{stash_index}
 alias gsd='git stash drop'  # overrides 'gsd' alias from git plugin
@@ -25,7 +24,6 @@ alias gsl='git stash list'
 alias gsp='git stash pop'
 alias gss='git stash save'
 alias gssh='git stash show'
-alias gtest='gradle test'
 alias nrd='npm run dev'
 alias ns='npm start'
 alias nv='nvim'
@@ -48,6 +46,11 @@ touchopen () { touch $1 && vim $1; }
 # JAVA
 alias all-java='/usr/libexec/java_home -V'
 alias highest-java='/usr/libexec/java_home'
+
+# gradle
+alias gres='open -a /Applications/Google\ Chrome.app app/build/reports/tests/test/index.html'
+alias grun='./gradlew run'
+alias gtest='gradle test'
 
 ## switch java versions (not needed yet, since java 11 became default after installation)
 # export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)

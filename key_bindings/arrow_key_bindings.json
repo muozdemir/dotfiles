@@ -178,6 +178,55 @@
                ]
             }
          ]
+      },
+      {
+         "description": "Map ctrl + comma/period to option + left/right arrows",
+         "manipulators": [
+            {
+               "type": "basic",
+               "from": {
+                  "key_code": "comma",
+                  "modifiers": {
+                     "mandatory": [
+                        "control"
+                     ],
+                     "optional": [
+                        "any"
+                     ]
+                  }
+               },
+               "to": [
+                  {
+                     "key_code": "left_arrow",
+                     "modifiers": [
+                        "option"
+                     ]
+                  }
+               ]
+            },
+            {
+               "type": "basic",
+               "from": {
+                  "key_code": "period",
+                  "modifiers": {
+                     "mandatory": [
+                        "control"
+                     ],
+                     "optional": [
+                        "any"
+                     ]
+                  }
+               },
+               "to": [
+                  {
+                     "key_code": "right_arrow",
+                     "modifiers": [
+                        "option"
+                     ]
+                  }
+               ]
+            }
+         ]
       }
    ]
 }
