@@ -1,0 +1,32 @@
+
+   "title": "Delete key mapping",
+   "rules": [
+      {
+         "description": "Map ctrl + delete to option + delete",
+         "manipulators": [
+            {
+               "type": "basic",
+               "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                     "mandatory": [
+                        "control"
+                     ],
+                     "optional": [
+                        "any"
+                     ]
+                  }
+               },
+               "to": [
+                  {
+                     "key_code": "delete_or_backspace",
+                     "modifiers": [
+                        "option"
+                     ]
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
