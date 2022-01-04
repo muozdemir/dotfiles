@@ -4,7 +4,9 @@
 echo "Setting up daito's :/ machine..."
 
 echo "Step 1/8: Installing Homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/danielharbor/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
 
 echo "Step 2/8: Installing mac apps"
