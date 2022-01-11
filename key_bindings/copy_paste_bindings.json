@@ -2,7 +2,7 @@
    "title": "Copy/paste bindings",
    "rules": [
       {
-         "description": "Map ctrl + left_shift + p to option + command + down (copy line to bottom)",
+         "description": "Map ctrl + p to option + command + down (copy line to bottom)",
          "manipulators": [
             {
                "type": "basic",
@@ -10,8 +10,7 @@
                   "key_code": "p",
                   "modifiers": {
                      "mandatory": [
-                        "control",
-                        "left_shift"
+                        "control"
                      ],
                      "optional": [
                         "any"
