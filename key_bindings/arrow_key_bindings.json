@@ -251,6 +251,30 @@
                ]
             }
          ]
+      },
+      {
+         "description": "Map ctrl + c to page_down",
+         "manipulators": [
+            {
+               "type": "basic",
+               "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                     "mandatory": [
+                        "control"
+                     ],
+                     "optional": [
+                        "any"
+                     ]
+                  }
+               },
+               "to": [
+                  {
+                     "key_code": "page_down"
+                  }
+               ]
+            }
+         ]
       }
    ]
 }
