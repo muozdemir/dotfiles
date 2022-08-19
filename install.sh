@@ -5,7 +5,7 @@ echo "Setting up daito's :/ machine..."
 
 echo "Step 1/8: Installing Homebrew"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/danielharbor/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/muozdemir/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew update
 
@@ -28,7 +28,7 @@ rm ~/.tmux.conf
 rm ~/.zshrc
 rm ~/Library/Application\ Support/Spectacle/Shortcuts.json
 # this will likely already be cloned to get a hold of this script anyway
-# git clone git@github.com:danielharbor/dotfiles.git ~/github
+# git clone git@github.com:muozdemir/dotfiles.git ~/github
 ln -s ~/github/dotfiles/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
 ln -s ~/github/dotfiles/key_bindings/* ~/.config/karabiner/assets/complex_modifications/
 ln -s ~/github/dotfiles/tmux.conf ~/.tmux.conf
@@ -36,7 +36,7 @@ ln -s ~/github/dotfiles/zshrc ~/.zshrc
 ln -s ~/github/dotfiles/spectacle.json ~/Library/Application\ Support/Spectacle/Shortcuts.json
 
 echo "Step 7/8: Cloning vim dotfiles"
-git clone git@github.com:danielharbor/vim_dotfiles.git ~/.vim
+git clone git@github.com:muozdemir/vim_dotfiles.git ~/.vim
 
 echo "Step 8/8: Cloning TPM (Tmux Plugin Manager)"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

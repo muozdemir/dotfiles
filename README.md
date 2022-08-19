@@ -8,7 +8,8 @@ This README is most likely not up-to-date. Please reference the respective confi
 Clone repo as follows:
 
 ```bash
-git clone git@github.com:danielharbor/dotfiles.git ~/github/dotfiles
+git clone git@github.com:muozdemir/dotfiles.git ~/github/dotfiles
+
 ```
 
 ## tmux mods
