@@ -1,0 +1,172 @@
+installing new apps to M1 mac laptop:
+https://github.com/muozdemir/dotfiles/blob/master/install.sh
+
+
+1. DONE
+echo "Step 1/8: Installing Homebrew"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/muozdemir/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew update
+
+
+2. brew install zsh
+
+3. brew install ranger highlight bash-completion tmux tig neovim
+
+4. git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+5. git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+6. brew install --cask iterm2 --cask visual-studio-code --cask spectacle --cask authy
+
+
+7. ln -s ~/github/dotfiles/aliases.zsh ~/.oh-my-zsh/custom/aliases.zsh
+
+8. rm ~/.tmux.conf
+   ln -s ~/github/dotfiles/tmux.conf ~/.tmux.conf
+
+9. Jira/confluence works in VPN
+
+10. install 1Password and login with my own credentials: muozdemir@paypal.com and #2!
+
+11. install Postman from self-service and SSO
+ --> follow this link: https://engineering.paypalcorp.com/confluence/display/postman/Postman+Getting+Started
+ -> all my collections under my workspace showed up!
+
+12. install OneNote from self-service
+ --> login using paypal SSO
+ --> add personal mozdemir@gmail.com microsoft account. MO icon in the left bottom corner
+ --> Open Notebook -> find the Braintree and mustafa Notebook 
+
+
+13. Restoring Chrom tabs:
+ --> Open the History tab: you can use Command+y on Mac (I guess that Super+y on Linux/BSD and Win)
+ --> On the left side you should see "Tabs from other devices" -- click it
+
+
+14. Move all VS code workspaces
+  --> setting up "Settings Sync" to sync everything File -> Preferences -> "Settings Sync On" in the old laptop
+  --> Do the same for VS code in the new laptop ==> brings all extension and settings here
+  --> cosmos-app: save the workspace in the old laptop in the cpair:muozdemir directory
+     -> in the new laptop, SSH to same cpair and open the workspace file
+  --> in-store: save the workspace as "in-store" in the remote container
+    -> attach to the same container from the new laptop 
+    -> opent the same workspace file
+
+
+  15. Change "caps lock" btn to "Control" btn
+
+16. setup Github Enterprise (from trello: https://trello.com/b/yHOG626s/developer-onboarding-v4-template)
+ - need to add new SSH key to the github:
+ - Upload public SSH key : https://trello.com/c/8AQNwja6/27-setup-github-enterprise
+ - https://docs.github.com/en/enterprise-server@3.6/authentication/connecting-to-github-with-ssh
+ - since i have the ssh keys, no need to generate it. just use the ssh-add cmd to add it
+ - make sure these lines in your .gitconfig:
+
+ [url "git@github.braintreeps.com:"]
+	insteadOf = https://github.braintreeps.com/
+
+
+============================== personal workflow =========================
+
+1. install ThinkOrSwim
+ -> share the workspace using:
+   -- Open TOS desktop which you want to copy the user settings
+   -- Click "setup" in upper right hand corner with gear icon
+   -- Click "share workspace"
+   -- Click "share" and copy the tos.mx link provided to you (if you lose it, go to Tools tab > Shared items to get it back)
+   -- Open the TOS download which you want to import workspace
+   -- Go to Setup > Open shared item
+   -- Paste URL
+
+==>> This link brought all my settting and chart layouts/scripts:   http://tos.mx/nuLkIRh
+
+2. install IB Trader Workstation. All works
+
+3. DONE: qc-app: AWS workflow
+ - install node/npm: https://nodejs.org/en/download/
+ - there was no python/pip, only python3/pip3 so I did these aliases:
+ alias python=/opt/homebrew/bin/python3
+ alias pip=/opt/homebrew/bin/pip3
+
+ - reinstalled openssl: https://stackoverflow.com/questions/45829588/brew-install-fails-curl77-error-setting-certificate-verify
+- it did not help...
+ - npm install -g serverless ==> ssl error
+  - npm works with VPN so go in to VPN first
+  - install cert bundles from self-service which will put these in .zshrc:
+  export REQUESTS_CA_BUNDLE='/usr/local/etc/openssl/certs/combined_cacerts.pem'
+  export SSL_CERT_FILE='/usr/local/etc/openssl/certs/combined_cacerts.pem'
+ - $ sudo npm install -g serverless
+ - $ which serverless
+/usr/local/bin/serverless
+
+# muozdemir @ LM-SJN-40031684 in ~/Documents/tradeamatic/aws/qc_app on git:main x [22:40:31]
+$ npm install --save-dev serverless-wsgi serverless-python-requirements
+$ pip install virtualenv
+$ virtualenv venv_aws_qc_app --python=python3
+$ source venv_aws_qc_app/bin/activate
+$ pip install -r requirements.txt 
+
+- in order to create .serverless directory, create the project with template:
+$ serverless create \
+--template aws-python3
+
+- serverless had certificate issue:
+"Could not download template. Ensure that you are using the latest version of Serverless Framework: unable to get local issuer certificate"
+I solved it:
+ - get into VPN
+ - export NODE_EXTRA_CA_CERTS=/usr/local/etc/openssl/certs/combined_cacerts.pem
+ - this pem file from self-service python certificates
+
+- in serverless.yml, I upgraded:
+  - frameworkVersion: '3'  # from '2'
+  - runtime: python3.9 # from python3.8
+
+- Changing python version to python3.9 since AWS did not work for 3.10
+  - used self-service to install python3.9
+  - pyenv did not work due to curl ssl issue
+$ rm -rf venv_aws_qc_app
+$ virtualenv venv_aws_qc_app --python=/usr/local/bin/python3.9
+$ source venv_aws_qc_app/bin/activate
+$ pip install -r requirements.txt
+$ sls deploy   <<<==== WORKED!
+
+
+4: DONE: qc-app-kivy
+$ virtualenv venv_kivy --python=python3
+$ source venv_kivy/bin/activate
+$ which python
+python: aliased to /opt/homebrew/bin/python3
+$ python -m pip install cython
+pip3 install pytz
+pip3 install jwt
+pip3 install kivy
+pip3 install yfinance
+pip3 install pandas_datareader
+pip3 install pyjwt
+
+
+5. DONE: python notebook
+- in the old laptop:
+$ conda list --export > package-list.txt
+- in the new laptop:  This did NOT work:
+$ conda create -n qc_lean --file package-list.txt 
+
+- created new conda env:
+$ conda create -n qc_lean python=3.9
+$ conda activate qc_lean
+$ conda install notebook
+$ conda install pandas
+$ conda install boto3
+
+
+
+
+ToDo: 
+
+1. make sure atmosphere and QRC collections works in postman!
+2. Verifone devices, make-me-an-admin, USB accessibility
+3. AWS logins
+4. vim dotfiles
+
+

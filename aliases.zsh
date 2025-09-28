@@ -31,7 +31,7 @@ alias nv='nvim'
 alias os='sudo cu -s 115200 -l /dev/tty.usbserial'
 alias old-os='screen -L /dev/cu.usbserial 115200 –L'
 alias show-usb='ls /Volumes/UNTITLED'
-alias sls='screen -ls'
+#alias sls='screen -ls' # sls is for serverless...
 alias sx='screen -x'
 alias sxq='screen -X quit'
 alias sz='source ~/.zshrc'
@@ -215,3 +215,68 @@ pau() {
 
 tnet () { telnet 192.168.86.$1 }
 touchopen () { touch $1 && vim $1; }
+
+######################### new ones ###############
+alias cls="clear"
+
+alias cd.="cd .."
+alias cd2.="cd ../.."
+alias cd3.="cd ../../.."
+alias cd4.="cd ../../../.."
+alias cd5.="cd ../../../../.."
+alias cd6.="cd ../../../../../.."
+
+alias l="ls -lFh"
+alias la='ls -a'
+alias ll='ls -alh'
+
+alias grep='grep --color'
+
+#alias ls='ls -al'
+alias python=/opt/homebrew/bin/python3
+alias pip=/opt/homebrew/bin/pip3
+
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# cpairvs() {
+#   if [ "$#" -ne 1 ]; then
+#     echo "Usage: $0 <cpairname>"
+#     return
+#   fi
+#   cpairname=$1
+#   sshPortForward=1234
+#   if ! grep -xq "Host $cpairname" ~/.ssh/config; then
+#     cat <<EOF >>~/.ssh/config
+# Host $cpairname
+#   HostName localhost
+#   Port $sshPortForward
+#   ForwardAgent yes
+# EOF
+#   fi
+#   cpair ssh -p $cpairname -f $sshPortForward:22 -f 7658:7658
+# }
+
+#-------------------------------------------------------------
+# QC related utilities:
+#-------------------------------------------------------------
+
+function kivy_app () {
+  cd $HOME/Documents/tradeamatic/kivy/kivy_app
+  source venv_kivy/bin/activate
+  KIVY_STAGE=dev python3 main.py
+}
+
+function qc_app () {
+  cd $HOME/Documents/tradeamatic/aws/qc_app
+  source .venv/bin/activate
+  export AWS_PROFILE=myapp
+  export NODE_EXTRA_CA_CERTS=/usr/local/etc/openssl/certs/combined_cacerts.pem
+}
+
+function jupyter_notebook () {
+  #cd $HOME/Documents/tradeamatic/quantconnect
+  cd $HOME/Documents/tradeamatic/kivy/kivy_app/notebooks
+  conda activate qc_lean
+  jupyter notebook
+}
+

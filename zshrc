@@ -1,7 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export M2_HOME=/usr/local/apache-maven-3.8.1
-export PATH=/usr/local/apache-maven-3.8.1/bin:$PATH
+#export M2_HOME=/usr/local/apache-maven-3.8.1
+#export PATH=/usr/local/apache-maven-3.8.1/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -10,7 +10,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="ys"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -74,6 +75,9 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+# my personal configuations
+source /Users/muozdemir/env.sh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -100,5 +104,46 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Configuration for Python, PIP, OpenSSL to trust the PayPal Proxy Certificates
+export REQUESTS_CA_BUNDLE='/usr/local/etc/openssl/certs/combined_cacerts.pem'
+export SSL_CERT_FILE='/usr/local/etc/openssl/certs/combined_cacerts.pem'
+export CURL_CA_BUNDLE='/usr/local/etc/openssl/certs/combined_cacerts.pem'
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/muozdemir/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/muozdemir/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/muozdemir/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/muozdemir/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/muozdemir/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# >>> Ensure NVM and Claude CLI are available <<<
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+nvm use default &>/dev/null
+
+# >>> Claude LLM ENV VARS <<<
+export ANTHROPIC_BASE_URL="https://aiplatform.dev51.cbf.dev.paypalinc.com/cosmosai/llm/v1"
+export ANTHROPIC_AUTH_TOKEN="cd0449ee9517d02ff6eed09ed6c3dca8c6031273dc7ad4d79ccda0aa76962522"
+export ANTHROPIC_MODEL="claude-3-7-sonnet-20250219"
+export ANTHROPIC_SMALL_FAST_MODEL="claude-3-5-haiku-20241022"
+# <<< Claude LLM ENV VARS <<<
